@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34899364025",
+    "project_id": "reactnativeproject-653b6",
+    "storage_bucket": "reactnativeproject-653b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34899364025:android:e5f9cf8c525cd6893ef368",
+        "android_client_info": {
+          "package_name": "com.todoapp_reactnative_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34899364025-bsjngboc7kdso1bdoajljj0u30qbngos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu-lClFlH-m0SCb32jlOj1EDQX5YcxDtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34899364025-bsjngboc7kdso1bdoajljj0u30qbngos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
