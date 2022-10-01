@@ -32,22 +32,35 @@ import ListScreen from './src/screens/ListScreen';
 
 const Stack=createNativeStackNavigator();
 
-const AuthStack=()=>{
-  return(
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name="LoginPage" component={Login} />
-      <Stack.Screen name="SignPage" component={Sign}/>
-      <Stack.Screen name="ListScreen" component={ListScreen} />
-    </Stack.Navigator>
-  )
-}
+
 
 const App: () => Node = () => {
+
+  const AuthStack=()=>{
+    return(
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen name="LoginPage" component={Login} />
+        <Stack.Screen name="SignPage" component={Sign}/>
+        <Stack.Screen name="ListScreen" component={ListScreen} />
+      </Stack.Navigator>
+    )
+  }
+
+  const [userSession,setUserSession]=useState(null);
+
+  useEffect(()=>{
+    auth().onAuthStateChanged((user)=>{
+      setUserSession(!!user)//2 ünlem doluysa true boşsa false döner..
+    })
+  });
 
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name="AuthStack" component={AuthStack}></Stack.Screen>
+        {
+          userSession ? <Stack.Screen name="ListScreen" component={ListScreen} />
+                      : <Stack.Screen name="AuthStack" component={AuthStack}></Stack.Screen>
+        }        
       </Stack.Navigator>
     </NavigationContainer>
   );

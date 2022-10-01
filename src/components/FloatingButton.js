@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
         borderRadius:60,
         backgroundColor:"#6001D1",
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
+        borderWidth:3,
+        borderColor:"gainsboro"
 
     },
     floatingButtonText:{

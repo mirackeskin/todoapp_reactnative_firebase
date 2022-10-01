@@ -28,7 +28,7 @@ const Sign = () => {
   }
 
   return (
-    <SafeAreaView style={styles.loginMainWrapper}>{console.log(email+password+repassword)}
+    <SafeAreaView style={styles.loginMainWrapper}>
         <View style={styles.mailWrapper}>
             <TextInput onChangeText={setEmail} value={email} style={{width:"100%"}} placeholder='E-Mail Adresinizi Girin'></TextInput>
         </View>
