@@ -22,12 +22,17 @@ const ModalContent = (props) => {
         visibleState();
         setContent("");
     }
+
+    const pressAddButton=()=>{
+        Send(content);
+        visibleState();
+    }
     
   return (
     <Modal onSwipeComplete={dailyDrop} swipeDirection={['left','right']} onBackdropPress={dailyDrop} onBackButtonPress={dailyDrop} isVisible={isVisible}>
         <View style={styles.modalContainer}>
             <TextInput onChangeText={setContent} style={styles.modalText} value={content} multiline  placeholder='Daily ekle' placeholderTextColor={"white"}></TextInput>
-            <TouchableOpacity onPressOut={visibleState} onPress={()=>Send(content)} style={styles.modalButton}>
+            <TouchableOpacity  onPress={pressAddButton} style={styles.modalButton}>
                 <Text style={{color:"white",fontSize:20}}>Ekle</Text>
             </TouchableOpacity>
         </View>
@@ -56,6 +61,8 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:"white",
         borderRadius:20,
+        borderBottomLeftRadius:0,
+        borderTopRightRadius:0,
         width:"100%",
         margin:10,
     },
@@ -64,6 +71,8 @@ const styles = StyleSheet.create({
         width:"60%",
         height:40,
         borderRadius: 10,
+        borderBottomLeftRadius:0,
+        borderTopRightRadius:0,
         borderWidth:1,
         borderColor:"white",
         alignItems:"center",

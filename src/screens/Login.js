@@ -29,7 +29,7 @@ const Login = () => {
                 <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setEmail} value={email}  placeholder='E-Mail Adresinizi Girin' placeholderTextColor={"white"}></TextInput>
             </View>
             <View style={styles.passwordWrapper}>
-                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setPassword} value={password} placeholder='Şifrenizi Girin' placeholderTextColor={"white"}></TextInput>
+                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setPassword} secureTextEntry={true} value={password} placeholder='Şifrenizi Girin' placeholderTextColor={"white"}></TextInput>
             </View>
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity onPress={signIn} style={{backgroundColor:"#6001D1",width:"100%",height:"100%",alignItems:"center",justifyContent:"center",borderRadius:10,borderWidth:1,borderColor:"white"}}>

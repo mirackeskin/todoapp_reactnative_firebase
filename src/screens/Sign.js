@@ -41,10 +41,10 @@ const Sign = () => {
               <TextInput onChangeText={setEmail} value={email} style={{width:"100%",color:"#6001D1"}} placeholder='E-Mail Adresinizi Girin'  placeholderTextColor={"#6001D1"}></TextInput>
           </View>
           <View style={styles.passwordWrapper}>
-              <TextInput onChangeText={setPassword} value={password} style={{width:"100%",color:"#6001D1"}} placeholder='Şifrenizi Girin'  placeholderTextColor={"#6001D1"}></TextInput>
+              <TextInput onChangeText={setPassword} value={password} secureTextEntry={true} style={{width:"100%",color:"#6001D1"}} placeholder='Şifrenizi Girin'  placeholderTextColor={"#6001D1"}></TextInput>
           </View>
           <View style={styles.passwordWrapper}>
-              <TextInput onChangeText={setRepassword} value={repassword} style={{width:"100%",color:"#6001D1"}} placeholder='Şifrenizi Tekrar Girin' placeholderTextColor={"#6001D1"}></TextInput>
+              <TextInput onChangeText={setRepassword} value={repassword} secureTextEntry={true} style={{width:"100%",color:"#6001D1"}} placeholder='Şifrenizi Tekrar Girin' placeholderTextColor={"#6001D1"}></TextInput>
           </View>
           <View style={styles.buttonWrapper}>
               <TouchableOpacity onPress={signUp} style={{backgroundColor:"#6001D1",width:"100%",height:"100%",alignItems:"center",justifyContent:"center",borderRadius:10,borderWidth:1,borderColor:"white"}}>

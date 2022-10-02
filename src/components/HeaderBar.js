@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        marginBottom:width/10
+        marginBottom:width/20
         },
         logoContainer:{
             borderWidth:1,

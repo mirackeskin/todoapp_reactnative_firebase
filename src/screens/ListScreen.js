@@ -9,6 +9,7 @@ import parseContentData from '../myTools/parseContentData';
 import { useRoute } from '@react-navigation/native';
 import DailyCard from '../components/DailyCard';
 import HeaderBar from '../components/HeaderBar';
+import InfoCard from '../components/InfoCard';
 
 const {width,height}=Dimensions.get("screen");
 
@@ -56,7 +57,7 @@ const ListScreen = () => {
         .orderByChild('username').equalTo(equalValue)
         .on('value',snapshot=>{
           const contentData=snapshot.val();
-          const parseData=parseContentData(contentData);//Kendi oluşturduğum array formatına çevirdim ve sort ettim.
+          const parseData=parseContentData(contentData || {});//Kendi oluşturduğum array formatına çevirdim ve sort ettim.contentData null ise boş obje gönderdim.********
           setContentList(parseData);//state'e ekledim.database().ref('users').orderByChild('age').startAt(21).once('value');
         })
     },[]);
@@ -68,9 +69,11 @@ const ListScreen = () => {
       <ScrollView style={{zIndex: -1}}>
         <HeaderBar></HeaderBar>
         {
-          contentList.map((contentValue)=>(
-            <DailyCard dailyContent={contentValue.text}></DailyCard>
-          ))
+          !contentList.length 
+            ?  <InfoCard></InfoCard> 
+            :  contentList.map((contentValue)=>(
+                <DailyCard dailyKey={contentValue.id} dailyContent={contentValue.text}></DailyCard>
+                ))
         }
       </ScrollView>
     </SafeAreaView>
