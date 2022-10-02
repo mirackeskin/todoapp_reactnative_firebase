@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View,Button,Dimensions } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View,Button,Dimensions, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import auth from '@react-native-firebase/auth';
@@ -9,14 +9,19 @@ const Login = () => {
     
     const Navigation=useNavigation();
 
-    const [email,setEmail]=useState("mk@gmail.com");
-    const [password,setPassword]=useState("123456");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
 
     const signIn=()=>{
         //Giriş Yapma
-        auth().signInWithEmailAndPassword(email,password)
+        if(email==="" || password === ""){
+            Alert.alert("Lütfen buşlukları doldur","",[{text:"ok"}])
+        }else{
+            auth().signInWithEmailAndPassword(email,password)
         .then(()=>Navigation.navigate("ListScreen",{username:email}))
         .catch(error=>console.log(error))
+        }
+        
     }
 
   return (
@@ -26,10 +31,10 @@ const Login = () => {
         </View>
         <View style={styles.downBox}>
             <View style={styles.mailWrapper}>
-                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setEmail} value={email}  placeholder='E-Mail Adresinizi Girin' placeholderTextColor={"white"}></TextInput>
+                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setEmail} value={email}  placeholder='E-Mail Adresinizi Girin' placeholderTextColor={"#6001D1"}></TextInput>
             </View>
             <View style={styles.passwordWrapper}>
-                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setPassword} secureTextEntry={true} value={password} placeholder='Şifrenizi Girin' placeholderTextColor={"white"}></TextInput>
+                <TextInput style={{width:"100%",color:"#6001D1"}} onChangeText={setPassword} secureTextEntry={true} value={password} placeholder='Şifrenizi Girin' placeholderTextColor={"#6001D1"}></TextInput>
             </View>
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity onPress={signIn} style={{backgroundColor:"#6001D1",width:"100%",height:"100%",alignItems:"center",justifyContent:"center",borderRadius:10,borderWidth:1,borderColor:"white"}}>
@@ -39,7 +44,7 @@ const Login = () => {
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity activeOpacity={0.4} onPress={()=>Navigation.navigate("SignPage")} style={{backgroundColor:"white",borderWidth:1,borderColor:"#6001D1",width:"100%",height:"100%",alignItems:"center",justifyContent:"center",borderRadius:10}}>
                     <Text style={{color:"#6001D1"}}>Kayıt Ol</Text>
-                </TouchableOpacity>
+                </TouchableOpacity>{console.log(password)}
             </View>
         </View>
     </SafeAreaView>

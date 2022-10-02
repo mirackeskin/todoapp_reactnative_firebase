@@ -72,7 +72,7 @@ const ListScreen = () => {
           !contentList.length 
             ?  <InfoCard></InfoCard> 
             :  contentList.map((contentValue)=>(
-                <DailyCard dailyKey={contentValue.id} dailyContent={contentValue.text}></DailyCard>
+                <DailyCard key={contentValue.id} dailyKey={contentValue.id} dailyContent={contentValue.text}></DailyCard>
                 ))
         }
       </ScrollView>

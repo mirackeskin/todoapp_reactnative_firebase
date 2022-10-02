@@ -9,15 +9,15 @@ const Sign = () => {
 
   const Navigation=useNavigation();
 
-  const [email,setEmail]=useState("mk2@gmail.com");
-  const [password,setPassword]=useState("123456");
-  const [repassword,setRepassword]=useState("12345");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const [repassword,setRepassword]=useState("");
 
   const signUp=()=>{
-    if(password!==repassword){
+    if(password!==repassword || email==="" || password==="" || repassword===""){
       Alert.alert(
         "Hata!",
-        "Hatalı yada Uyumsuz Parola Girişi",
+        "Hatalı,Eksik yada Uyumsuz Email veya Parola Girişi",
         [
           { text: "Tamam", onPress: () => console.log("OK Pressed") }
         ]
